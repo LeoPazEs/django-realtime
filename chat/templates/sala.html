@@ -16,8 +16,9 @@
             <input id='botao' type='button' value='Enviar' />
         {% endbuttons %}
     </div>
-    {% bootstrap4_javascript jquery='full' %}
-    <script>
+    {% bootstrap_javascript jquery='full' %}
+    <script> 
+        
         var nome_sala = {{ nome_sala_json }};
 
         var chatSocket = new WebSocket(
@@ -37,12 +38,13 @@
 
         document.querySelector('#text').focus();
         document.querySelector('#text').onkeyup = function(e){
-            if(e.KeyCode == 13){
-                document.querySelector('#botao'.click());
-            }
+        if(e.keyCode === 13){
+            document.querySelector('#botao').click();
+        }
         };
+
         document.querySelector('#botao').onclick = function(e){
-            var menssagemInput = document.querySelector('#text');
+            var mensagemInput = document.querySelector('#text');
             var mensagem = mensagemInput.value;
             chatSocket.send(JSON.stringify({
                 'mensagem': mensagem
