@@ -16,7 +16,8 @@
             <input id='botao' class='btn btn-primary' type="button" value="Entrar"/>
         {% end buttons %}
     </div>
-
+    
+    {% bootstrap4_javascript jquery='full' %}
     <script>
         document.querySelector('#nome_sala').focus(); 
         document.querySelector('#nome_sala').onkeyup = function(e){
@@ -36,6 +37,5 @@
             }
         };
     </script> 
-    {% bootstrap4_javascript jquery='full' %}
 </body>
 </html>
